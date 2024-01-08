@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const app = express();
 app.use(express.json());
@@ -14,7 +16,7 @@ const Admin = require("./db/Admin");
 
 /*FOOD CONTROLLER*/
 
-//admin can add a new food in the system
+//admin can add a new food in the system (private - ONLY ADMIN)
 app.post("/food", async (req, res) => {
     const food = new Food({
         name: req.body.name,
@@ -29,12 +31,12 @@ app.post("/food", async (req, res) => {
     res.send(food);//sends as a response a JSON of the added food
 })
 
-//returns a list with all the foods in the menu
+//returns a list with all the foods in the menu (public)
 app.get("/food", async(req, res) => {
     const foods = await Food.find()
     res.send(foods); //return a list with all the foods in the app
 })
-//returns the food by it's id
+//returns the food by it's id (public)
 app.get("/food/:id", async(req, res) => {
    try{
         const foodId = req.params.id;
@@ -45,7 +47,7 @@ app.get("/food/:id", async(req, res) => {
         res.status(404).send("plate of food not found, check if you inserted an existent Id");
    }
 })
-//deletes the food from the menu by it's Id
+//deletes the food from the menu by it's Id (private - ONLY ADMIN)
 app.delete("/food/:id", async(req, res) => {
     try {
         const foodId = req.params.id;
@@ -62,6 +64,6 @@ app.delete("/food/:id", async(req, res) => {
 
 
 app.listen(port, () => {
-    mongoose.connect("mongodb+srv://user:user@cluster0.6pcqhjq.mongodb.net/?retryWrites=true&w=majority");
+    mongoose.connect("mongodb+srv://user:user@cluster0.6pcqhjq.mongodb.net/?retryWrites=true&w=majority");//move this URL later to a .env file
     console.log("Running on port 8080");
 })
