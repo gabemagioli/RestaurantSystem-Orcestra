@@ -8,9 +8,9 @@ app.use(express.json());
 const port = 8080;
 
 //database models:
-const Food = require("./db/Food");
-const Client = require("./db/Client");
-const Admin = require("./db/Admin");
+const Food = require("./models/Food");
+const Client = require("./models/Client");
+const Admin = require("./models/Admin");
 
 
 
@@ -59,11 +59,35 @@ app.delete("/food/:id", async(req, res) => {
     }
 })
 
+/* CLIENT CONTROLLER */
 
+app.post("/register/client", async (req, res) => {
+    const newClient = new Client({
+        name: req.body.name,
+        email: req.body.email,
+        password: req.boddy.password,
+        role: req.body.role
+        //maybe add an empty array in here
+    })
+
+
+})
+
+
+/*ADMIN CONTROLLER */
+
+app.post("/register/admin", async (req, res) => {
+    const newAdmin = new Admin({
+        name:req.body.name,
+        email:req.body.email,
+        password:req.body.password,
+        role: req.body.role
+    })
+})
 
 
 
 app.listen(port, () => {
-    mongoose.connect("mongodb+srv://user:user@cluster0.6pcqhjq.mongodb.net/?retryWrites=true&w=majority");//move this URL later to a .env file
+    mongoose.connect("mongodb+srv://user:user@cluster0.6pcqhjq.mongodb.net/?retryWrites=true&w=majority");//put the user and password in variables in the .env file and import it to here
     console.log("Running on port 8080");
 })
