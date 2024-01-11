@@ -36,7 +36,7 @@ app.get("/food", async(req, res) => {
     const foods = await Food.find()
     res.send(foods); //return a list with all the foods in the app
 })
-//returns the food by it's id (public)
+//returns the food by its id (public)
 app.get("/food/:id", async(req, res) => {
    try{
         const foodId = req.params.id;
@@ -47,7 +47,7 @@ app.get("/food/:id", async(req, res) => {
         res.status(404).send("plate of food not found, check if you inserted an existent Id");
    }
 })
-//deletes the food from the menu by it's Id (private - ONLY ADMIN)
+//deletes the food from the menu by its Id (private - ONLY ADMIN)
 app.delete("/food/:id", async(req, res) => {
     try {
         const foodId = req.params.id;
@@ -61,21 +61,35 @@ app.delete("/food/:id", async(req, res) => {
 
 /* CLIENT CONTROLLER */
 
+//registering a Client
 app.post("/register/client", async (req, res) => {
+    //receiving the parameters:
+    const { name, email, password, role } = req.body;
+    //check in DB if there's already a user with the same email
+    if(await Client.findOne({ email: email })){//if it returns True there's a user with this email
+        res.status(422).send("This email is already in use, choose another one");
+    }
+    //Client password:
+    const passwordHash = await bcrypt.hash(password);
+
+    //creating the client:
     const newClient = new Client({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.boddy.password,
-        role: req.body.role
+        name,
+        email,
+        password: passwordHash,//saving the hashed password 
+        role
         //maybe add an empty array in here
-    })
+    });
 
-
-})
+    await Client.save(newClient);//saving in DB
+    res.status(200).send("Client succesfully registered");
+});
+//Login in a Client
 
 
 /*ADMIN CONTROLLER */
 
+//delete method after creating the admin
 app.post("/register/admin", async (req, res) => {
     const newAdmin = new Admin({
         name:req.body.name,

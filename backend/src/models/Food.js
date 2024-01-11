@@ -1,7 +1,7 @@
 //food database table
 const mongoose = require('mongoose');
 
-const foodSchema = new mongoose.Schema({
+const foodSchema = new mongoose.Schema({//db table
     name: String,
     description: String,
     price: Number,
@@ -9,6 +9,6 @@ const foodSchema = new mongoose.Schema({
     image_url: String
 });
 
-const Food = mongoose.model('Food', foodSchema);
+const Food = mongoose.model('Food', foodSchema);//creating model
 
 module.exports = Food;
