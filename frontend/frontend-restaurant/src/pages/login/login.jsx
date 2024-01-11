@@ -1,28 +1,30 @@
 import React from 'react';
-import './styles/login.css';
+import './login.css';
 
-function App() {
+function Login() {
   return (
-    <header>
-      <div className="engloba-login">
+    <body>
+      <section className="engloba-login">
         <div className="restaurante-login">
           <h1 id="nome-restaurante">Restaurante XXX</h1>
           <h2 id="subtitulo-restaurante">Subtítulo aqui</h2>
         </div>
         <div className="login">
-          <div className="titulo">Login</div>
+          {/* <div className="titulo">Login</div> */}
           <div className="campo">
-            <label htmlFor="email">Email:</label>
+            <label htmlFor="email" className="label">Email: </label>
             <input type="text" id="email" name="email" placeholder="Digite seu email" />
           </div>
           <div className="campo">
-            <label htmlFor="senha">Senha:</label>
+            <label htmlFor="senha" className="label">Senha: </label>
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha" />
           </div>
         </div>
-      </div>
-    </header>
+        <button className="cadastro">Cadastre-se!</button>
+        <button className="entrar">ENTRAR</button>
+      </section>
+    </body>
   );
 }
 
-export default App;
+export default Login;

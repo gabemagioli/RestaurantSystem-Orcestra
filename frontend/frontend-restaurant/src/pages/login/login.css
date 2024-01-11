@@ -11,17 +11,18 @@ body {
     align-items: center;
     background-color: #64232B;
     position: absolute;
-    top: 0;
+    margin-top: 4%;
     left: 50%; /* dispor a faixa no centro da tela */
     transform: translateX(-50%);
-    height: 100vh;
+    height: 80%;
     width: 40%; /* ajustar largura da faixa central */
     padding: 20px;
     box-sizing: border-box;
+    border-radius:5%;
 }
 
 .restaurante-login{
-    margin-top: -200px;
+    margin-top:-70px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -29,7 +30,7 @@ body {
 }
 
 #nome-restaurante{
-    color: #D9A956;;
+    color: #D9A956;
 }
 
 #subtitulo-restaurante{
@@ -41,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 70px;
+    margin-top: 50px;
     color: #D9A956;;
 }
 
@@ -52,4 +53,36 @@ body {
 
 .campo{
     padding: 5px;
+    display:flex;
+    flex-direction: column;
+}
+.label{
+    font-size: 30px;
+}
+#senha,#email {
+    padding:8px;
+    width:300px;
+}
+.cadastro{
+    border:none;
+    border-bottom:3px solid #D9A956;
+    background:none;
+    color:#D9A956;
+    margin-bottom: 20px;
+}
+.cadastro:hover{
+    color:#ffe6bb;
+    border-bottom:3px solid #ffe6bb;
+    transition: 0.5s;
+}
+.entrar{
+    background-color: #D9A956;
+    padding:10px;
+    width:25%;
+    color:#64232B;
+    font-weight: bold;
+}
+.entrar:hover{
+    color:#ffe6bb;
+    transition: 0.5s;
 }
