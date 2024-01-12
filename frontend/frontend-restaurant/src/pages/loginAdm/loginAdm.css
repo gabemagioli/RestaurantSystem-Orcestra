@@ -22,8 +22,8 @@ body {
 }
 
 .restaurante-login{
-    margin-top:-10px;
-    padding: 0px;
+    margin-top:-70px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +42,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -10px;
+    margin-top: 50px;
     color: #D9A956;;
 }
 
@@ -59,19 +59,19 @@ body {
 .label{
     font-size: 30px;
 }
-#nome,#senha,#email {
+#senha,#email {
     padding:8px;
     width:300px;
 }
 
-.cadastrar{
+.entrar{
     background-color: #D9A956;
     padding:10px;
     width:25%;
     color:#64232B;
     font-weight: bold;
 }
-.cadastrar:hover{
+.entrar:hover{
     color:#ffe6bb;
     transition: 0.5s;
 }
