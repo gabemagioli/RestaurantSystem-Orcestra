@@ -1,0 +1,93 @@
+
+/* ajustar imagem de fundo 
+ body {
+    background-image: url('https://images.photowall.com/products/46618/modern-world-antique-map.jpg?h=699&q=85');
+    background-size: cover; 
+    background-position: center 20%; 
+} */
+
+/* header */
+#cabecalho{
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px;
+    background-color:#64232B;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    position:fixed;
+}
+
+/* header */
+#titulo-principal{
+    margin-left: 30px;
+    align-items: center;
+    color:#D9A956;
+}
+
+/* header - barra de navegacao */
+.nav-bar{
+    display:flex;
+    flex-direction:row;
+    margin-right: 30px;
+}
+
+/* header - design das divs da nav bar*/
+.nav-bar div{
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+/* header */
+.anchor-navbar{
+    color:#F1EEE3;
+}
+
+/* links para perfil e carrinho */
+#link-perfil{
+    padding: 10px;
+    height: 30px;
+}
+
+#link-carrinho{
+    padding: 10px;
+    height: 30px;
+}
+
+.engolba-pg{
+    background-color: #AF9676;
+    margin-top: 150px;
+    height: 500px;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 20px;
+}
+
+.cabecalho-comidas{
+    background-color: #654A35;
+    margin-top: 150px;
+    height: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* links para cada pagina especifica da comida */
+.anchor-comida{
+    color: #F1EEE3;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.cabecalho-comidas{
+    display: flex;
+    padding: 10px;
+    justify-content:center
+}
+
+.texto-cadapio{
+    font-size: 20px;
+    margin-left: 10px;
+    color: #654A35;
+}
