@@ -14,28 +14,35 @@ const Admin = require("./models/Admin");
 
 
 
-/*FOOD CONTROLLER*/
+/*FOOD CONTROLLER  - TUDO OK */ 
 
-//admin can add a new food in the system (private - ONLY ADMIN)
-app.post("/food", async (req, res) => {
-    const food = new Food({
-        name: req.body.name,
-        description: req.body.description,
-        price: req.body.price,
-        nationality: req.body.nationality,
-        image_url: req.body.image_url
-    })
+//post a new food - PRIVATE ROUTE
+app.post("/food", async(req, res) => {
+    const { name, description, price, nationality, image_url } = req.body;
 
-    await food.save();//saves in database
+    if(!name || !description || !price || !nationality || !image_url){
+        return res.status(422).send("missing information");
+    }
 
-    res.send(food);//sends as a response a JSON of the added food
+    const newFood = new Food({
+        name,
+        description,
+        price,
+        nationality,
+        image_url
+    });
+
+    await newFood.save();
+    res.status(200).send("Food registered: " + newFood);
 })
+
 
 //returns a list with all the foods in the menu (public)
 app.get("/food", async(req, res) => {
     const foods = await Food.find()
     res.send(foods); //return a list with all the foods in the app
 })
+
 //returns the food by its id (public)
 app.get("/food/:id", async(req, res) => {
    try{
@@ -47,6 +54,7 @@ app.get("/food/:id", async(req, res) => {
         res.status(404).send("plate of food not found, check if you inserted an existent Id");
    }
 })
+
 //deletes the food from the menu by its Id (private - ONLY ADMIN)
 app.delete("/food/:id", async(req, res) => {
     try {
@@ -58,6 +66,12 @@ app.delete("/food/:id", async(req, res) => {
         res.status(404).send("The food you were trying to delete wasn't found, check if the right Id was given.");
     }
 })
+
+
+
+
+
+
 
 /* CLIENT CONTROLLER */
 
@@ -81,23 +95,111 @@ app.post("/register/client", async (req, res) => {
         //maybe add an empty array in here
     });
 
-    await Client.save(newClient);//saving in DB
+    await newClient.save();//saving in DB
     res.status(200).send("Client succesfully registered");
 });
-//Login in a Client
+//Login as client
+app.post("/login/client", async(req, res) => {
+    const { email, password } = req.body;
+
+    const user = await Client.findOne({ email: email });
+    if(!user){
+        return res.status(422).send("User not found, check if you put the right informations or sing-up!");
+    }
+
+    if(!email || !password){
+        return res.status(422).send("Empty field!");
+    }
+
+    const check = await bcrypt.compare(password, user.password);//comparing the passswords
+    if(!check){
+        return res.status(422).send("Incorrect password");
+    }
+
+    try {
+        const secret = "22682275";//transferir para o .env depois - nao e boa pratica deixar urls, senhas expostas no codigo!!
+        const token = jwt.sign({
+            id:user.id,
+        },
+        secret,
+        )
+
+        res.status(200).send(token);
+    }
+    catch(error){
+        res.status(500).send("Error");
+    }
+})
+
+
+
+
+
+
 
 
 /*ADMIN CONTROLLER */
 
 //delete method after creating the admin
 app.post("/register/admin", async (req, res) => {
+    //receiving the parameters:
+    const { name, email, password, role } = req.body;
+    //check in DB if there's already a user with the same email
+    if(await Admin.findOne({ email: email })){//if it returns True there's a user with this email
+        res.status(422).send("This email is already in use, choose another one");
+    }
+    //Client password:
+    const passwordHash = await bcrypt.hash(password);
+
+    //creating the client:
     const newAdmin = new Admin({
-        name:req.body.name,
-        email:req.body.email,
-        password:req.body.password,
-        role: req.body.role
-    })
+        name,
+        email,
+        password: passwordHash,//saving the hashed password 
+        role
+        //maybe add an empty array in here
+    });
+
+    await newAdmin.save();//saving in DB
+    res.status(200).send("Client succesfully registered");
 })
+
+//login as admin:
+app.post("/login/admin", async(req, res) => {
+    const { email, password } = req.body;
+
+    const user = await Admin.findOne({ email: email });
+    if(!user){
+        return res.status(422).send("User not found, check if you put the right informations or sing-up!");
+    }
+
+    if(!email || !password){
+        return res.status(422).send("Empty field!");
+    }
+
+    const check = await bcrypt.compare(password, user.password);//comparing the passswords
+    if(!check){
+        return res.status(422).send("Incorrect password");
+    }
+
+    try {
+        const secret = "22682275";//transferir para o .env depois - nao e boa pratica deixar urls, senhas expostas no codigo!!
+        const token = jwt.sign({
+            id:user.id,
+        },
+        secret,
+        )
+
+        res.status(200).send(token);
+    }
+    catch(error){
+        res.status(500).send("Error");
+    }
+})
+
+
+
+
 
 
 
