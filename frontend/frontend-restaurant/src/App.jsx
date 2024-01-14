@@ -3,7 +3,7 @@ import Login from './pages/login/Login.jsx';
 import LoginAdm from './pages/loginAdm/loginAdm.jsx';
 import Cadastro from './pages/cadastro/cadastro.jsx';
 import PgInicial from './pages/pgInicial/pgInicial.jsx';
-import Perfil from '.pages/perfil/perfil.jsx';
+import Perfil from './pages/perfil/perfil.jsx';
 
 function App() {
 

@@ -18,10 +18,10 @@ function pgInicial() {
         <div className="engolba-pg">
             <div className="cabecalho-comidas">
             <div><a href="#link-brasil" class="anchor-comida">Brasileiras</a></div>
-            <div><a href="#link-alemanha" class="anchor-comida">Alemãs</a></div>
+            <div><a href="#link-arabia" class="anchor-comida">Árabes</a></div>
             <div><a href="#link-franca" class="anchor-comida">Francesas</a></div>
-            <div><a href="#link-japao" class="anchor-comida">Japonesas</a></div>
-            <div><a href="#link-china" class="anchor-comida">Chinesas</a></div>
+            <div><a href="#link-italia" class="anchor-comida">Italianas</a></div>
+            <div><a href="#link-tailandia" class="anchor-comida">Tailandesas</a></div>
             </div>
 
             <div className="cadapio">
