@@ -1,69 +1,63 @@
-.engloba-perfil{
+.engloba-perfil {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #64232B;
-    position: absolute;
-    left: 50%; 
-    transform: translateX(-50%);
-    height: 100vh;
-    width: 70%; 
+    width: 70%;
     box-sizing: border-box;
-    border-radius: 0px;
-    margin-top: -10px;
+    margin: auto;
+    padding: 20px;
+    height: 600px;
+    margin-top: 40px;
 }
 
-#nome-restaurante{
-    margin-top: -30px;
-    color: #D9A956;;
+#nome-restaurante {
+    margin-top: 50px;
+    color: #D9A956;
 }
 
 .sobre-cliente {
     display: flex;
     align-items: center;
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 #img-cliente {
     height: 100px;
-    width: 100px; 
+    width: 100px;
     border-radius: 50%;
-    margin-right: 20px; 
+    margin-right: 20px;
 }
 
-#nome-cliente{
+#nome-cliente {
     color: #F1EEE3;
 }
 
-.medalhas{
-    margin-top: 60px;
+.medalhas {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
 }
 
-.engloba-medalha{
+.engloba-medalha {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    margin-right: 20px;
 }
 
-.pais-medalha{
-    color:#D9A956;
+.pais-medalha {
+    color: #D9A956;
 }
 
 .img-medalha {
     height: 100px;
-    width: 100px; 
+    width: 100px;
     border-radius: 50%;
 }
 
-.desc-medalha{
-    color:#F1EEE3;
+.desc-medalha {
+    color: #F1EEE3;
 }
-
-
-
-

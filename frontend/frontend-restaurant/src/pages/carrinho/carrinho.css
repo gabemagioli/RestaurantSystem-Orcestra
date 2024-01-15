@@ -1,0 +1,69 @@
+.engloba-carrinho {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #64232B;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: 70%;
+    box-sizing: border-box;
+    border-radius: 0px;
+    margin-top: -10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #titulo-carrinho {
+    color: #F1EEE3;
+  }
+
+  .carrinho-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 550px;
+    width: 100%;
+  }
+  
+  .item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #F1EEE3;
+    margin-top: 10px;
+  }
+  
+  .nome-item {
+    color: #F1EEE3;
+  }
+  
+  .preco-item {
+    margin-right: 30px;
+    color: #D9A956;
+  }
+  
+  .total-carrinho {
+    margin-top: 10px;
+    color: #D9A956;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .botao-pagar {
+    margin-top: auto;
+    padding: 10px 20px;
+    background-color: #F1EEE3;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .botao-pagar:hover {
+    background-color: #D9A956;
+  }

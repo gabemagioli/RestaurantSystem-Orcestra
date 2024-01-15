@@ -78,6 +78,13 @@
     justify-content:center
 }
 
+#comida{
+    color: #D9A956;
+    padding: 10px;
+    font-size: 25px;
+    margin-top: -10px;
+}
+
 .texto-cadapio{
     font-size: 20px;
     margin-left: 10px;
