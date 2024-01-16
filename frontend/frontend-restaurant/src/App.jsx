@@ -11,6 +11,7 @@ import PgAr from './pages/pgs/pgAr.jsx';
 import PgFr from './pages/pgs/pgFr.jsx';
 import PgIt from './pages/pgs/pgIt.jsx';
 import PgTl from './pages/pgs/pgTl.jsx';
+import PgInicialAdm from './pages/pgInicial/pgInicialAdm.jsx';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/pgFr" element={<PgFr/>}/>
           <Route path="/pgIt" element={<PgIt/>}/>
           <Route path="/pgTl" element={<PgTl/>}/>
+          <Route path="/pgInicialAdm" element={<PgInicialAdm/>}/>
         </Routes>
       </BrowserRouter>
     </>

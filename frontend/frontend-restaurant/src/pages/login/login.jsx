@@ -1,6 +1,7 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './login.css';
-import { useNavigate } from "react-router-dom";
+
 
 function Login() {
 
@@ -16,7 +17,6 @@ function Login() {
           <h2 id="subtitulo-restaurante">Subtítulo aqui</h2>
         </div>
         <div className="login">
-          {/* <div className="titulo">Login</div> */}
           <div className="campo">
             <label htmlFor="email" className="label">Email: </label>
             <input type="text" id="email" name="email" placeholder="Digite seu email" />

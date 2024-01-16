@@ -132,3 +132,22 @@
 .botao-adicionar:hover{
     background-color: #D9A956;
 }
+
+.botoes{
+    margin-left: 850px;
+    margin-top: 10px;
+    height: 80px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.botao-infos{
+    height: 40px;
+    padding: 10px;
+    width: 130px;
+}
+
+.botao-infos:hover{
+    background-color: #D9A956;
+}
