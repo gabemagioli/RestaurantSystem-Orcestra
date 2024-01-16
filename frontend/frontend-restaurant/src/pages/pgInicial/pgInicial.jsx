@@ -23,7 +23,7 @@ function pgInicial() {
             <div><a href="#link-italia" class="anchor-comida">Italianas</a></div>
             <div><a href="#link-tailandia" class="anchor-comida">Tailandesas</a></div>
             </div>
-            <h1 class="texto-cadapio">Confira as preferidas dos clientes!</h1>
+            <h1 class="texto-cardapio">Confira as preferidas dos clientes!</h1>
             <div className="cardapio">
                 <div className="refeicao">
                     <img src="https://i.panelinha.com.br/i1/228-q-1438-feijoada-na-pressao.webp" alt="Imagem da Refeição" className="imagem-refeicao" />

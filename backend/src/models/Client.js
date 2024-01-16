@@ -6,7 +6,12 @@ const clientSchema = new mongoose.Schema({//creating the DB table
     email: String,
     password: String,
     role: String,
-    medalList: [String]
+    italyMedal: Number,//medal counters
+    brazilMedal: Number,
+    japanMedal: Number,
+    thailandMedal: Number,
+    arabMedal: Number,
+    franceMedal: Number
 });
 
 const Client = mongoose.model('Client', clientSchema);//creating the Model

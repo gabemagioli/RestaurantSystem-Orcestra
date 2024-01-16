@@ -1,7 +1,13 @@
 import React from 'react';
 import './login.css';
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+
+  const navigate = useNavigate();
+  const handleNavigateCadastro = () => {
+    navigate("/cadastro");
+  }
   return (
     <body>
       <section className="engloba-login">
@@ -20,7 +26,7 @@ function Login() {
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha" />
           </div>
         </div>
-        <button className="cadastro">Cadastre-se!</button>
+        <button className="cadastro" onClick={handleNavigateCadastro}>Cadastre-se!</button>{/*navegacao para cadastro ok*/}
         <button className="entrar">ENTRAR</button>
       </section>
     </body>

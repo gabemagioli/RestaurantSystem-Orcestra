@@ -5,6 +5,7 @@ import Cadastro from './pages/cadastro/cadastro.jsx';
 import PgInicial from './pages/pgInicial/pgInicial.jsx';
 import Perfil from './pages/perfil/perfil.jsx';
 import Carrinho from './pages/carrinho/carrinho.jsx';
+//as paginas abaixo sao referentes aos paises na qual o restaurante trabalha com a culinaria:
 import PgBr from './pages/pgs/pgBr.jsx';
 import PgAr from './pages/pgs/pgAr.jsx';
 import PgFr from './pages/pgs/pgFr.jsx';
@@ -18,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login/>}/>
-          <Route path="/signup" element={<LoginAdm/>}/>
+          <Route path="/signup" element={<LoginAdm/>}/> {/*mudar o nome signup pq significa cadastrar em ingles */}
           <Route path="/cadastro" element={<Cadastro/>}/>
           <Route path="/pginicial" element={<PgInicial/>}/>
           <Route path="/perfil" element={<Perfil/>}/>

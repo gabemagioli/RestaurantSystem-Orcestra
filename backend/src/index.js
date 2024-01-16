@@ -12,12 +12,30 @@ const Food = require("./models/Food");
 const Client = require("./models/Client");
 const Admin = require("./models/Admin");
 
+//checking if jwt token is valid
+function checkJWT(req, res, next){//working, its making the validation
+    const authHeader = req.headers["authorization"];
+    const token = authHeader && authHeader.split(" ")[1];
 
+    if(!token){
+        return res.status(401).send("Unable to execute this");
+    }
+
+    try {
+
+        const secret =  "22682275";//colocar secret no .env depois
+        jwt.verify(token, secret);
+        next();
+    }
+    catch(err) {
+        res.status(400).send("Token isn't valid");
+    }
+}
 
 /*FOOD CONTROLLER  - TUDO OK */ 
 
-//post a new food - PRIVATE ROUTE
-app.post("/food", async(req, res) => {
+//post a new food - PRIVATE ROUTE - TESTED OK 
+app.post("/food", checkJWT, async(req, res) => {
     const { name, description, price, nationality, image_url } = req.body;
 
     if(!name || !description || !price || !nationality || !image_url){
@@ -37,13 +55,13 @@ app.post("/food", async(req, res) => {
 })
 
 
-//returns a list with all the foods in the menu (public)
+//returns a list with all the foods in the menu (public) - TESTED OK
 app.get("/food", async(req, res) => {
     const foods = await Food.find()
     res.send(foods); //return a list with all the foods in the app
 })
 
-//returns the food by its id (public)
+//returns the food by its id (public) - TESTED OK
 app.get("/food/:id", async(req, res) => {
    try{
         const foodId = req.params.id;
@@ -55,8 +73,8 @@ app.get("/food/:id", async(req, res) => {
    }
 })
 
-//deletes the food from the menu by its Id (private - ONLY ADMIN)
-app.delete("/food/:id", async(req, res) => {
+//deletes the food from the menu by its Id (private - ONLY ADMIN) - TESTED OK
+app.delete("/food/:id", checkJWT, async(req, res) => {
     try {
         const foodId = req.params.id;
         const food = await Food.findByIdAndDelete(foodId);
@@ -75,30 +93,44 @@ app.delete("/food/:id", async(req, res) => {
 
 /* CLIENT CONTROLLER */
 
-//registering a Client
+//registering a Client - TESTED OK
 app.post("/register/client", async (req, res) => {
-    //receiving the parameters:
+    // parameters
     const { name, email, password, role } = req.body;
-    //check in DB if there's already a user with the same email
-    if(await Client.findOne({ email: email })){//if it returns True there's a user with this email
+
+    // checking if a user is already using the email
+    if (await Client.findOne({ email: email })) {
         res.status(422).send("This email is already in use, choose another one");
     }
-    //Client password:
-    const passwordHash = await bcrypt.hash(password);
 
-    //creating the client:
-    const newClient = new Client({
-        name,
-        email,
-        password: passwordHash,//saving the hashed password 
-        role
-        //maybe add an empty array in here
-    });
+    try {
+        //generating the hash
+        const passwordHash = await bcrypt.hash(password, 10);
 
-    await newClient.save();//saving in DB
-    res.status(200).send("Client succesfully registered");
+        
+        const newClient = new Client({
+            name,
+            email,
+            password: passwordHash,
+            role,
+            italyMedal: 0,
+            brazilMedal: 0,
+            japanMedal: 0,
+            thailandMedal: 0,
+            arabMedal: 0,
+            franceMedal: 0
+        });
+
+        // Save in db
+        await newClient.save();
+        res.status(200).send("Client successfully registered");
+    } catch (error) {
+        console.error("Error registering client:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
-//Login as client
+
+//Login as client - TESTED OK
 app.post("/login/client", async(req, res) => {
     const { email, password } = req.body;
 
@@ -129,6 +161,24 @@ app.post("/login/client", async(req, res) => {
     catch(error){
         res.status(500).send("Error");
     }
+})
+// counting medals and saving the updates: -> method called on shopping cart checkout (probably will be a private route only for clients - needs to be a client to buy products) (check if its implemented right)
+app.put("/medal/:id", async(req, res) => {
+    const userId = req.params.id;
+    const user = await Client.replaceOne({_id:userId}, req.body);//inthe body the front end will give the updated number of medals
+    res.status(200).send(user);
+})
+//returns client information - TESTED 
+app.get("/client/:id", async(req, res) => {
+    const userId = req.params.id;
+    const user = await Client.findById(userId);
+
+    res.status(200).send(user);
+})
+//return all clients (maybe it isnt needed) - TESTED
+app.get("/client", async(req, res) => {
+    const clients = await Client.find();
+    res.send(clients);
 })
 
 
