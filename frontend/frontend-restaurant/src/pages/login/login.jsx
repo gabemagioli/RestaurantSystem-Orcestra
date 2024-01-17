@@ -2,9 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-
 function Login() {
-
   const navigate = useNavigate();
   const handleNavigateCadastro = () => {
     navigate("/cadastro");
