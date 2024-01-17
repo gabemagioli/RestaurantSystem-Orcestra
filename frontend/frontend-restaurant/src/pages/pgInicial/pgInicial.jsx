@@ -51,7 +51,7 @@ function pgInicial() {
         </nav>
         </header>
 
-        <div className="engolba-pg">
+        <div className="engloba-pg">
             <div className="cabecalho">
             <div className="comida-destaque"> Todas </div>
             <div className="comida" onClick={handleNavigatePgBrasil}>Brasileiras</div> {/*navegacao para brasil ok*/}

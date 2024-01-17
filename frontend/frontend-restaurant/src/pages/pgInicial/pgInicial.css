@@ -32,7 +32,7 @@
     transition: 0.5s;
 }
 
-.engolba-pg{
+.engloba-pg{
     background-color: #AF9676;
     margin-top: 150px;
     height: 500px;
@@ -136,3 +136,79 @@
 .botao-infos:hover, .botao-adicionar:hover{
     background-color: #D9A956;
 }
+
+/*pop-ups para o adm - criar, editar e excluir pratos*/
+.modal-overlay{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-add {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #64232B;
+    height: 520px;
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+.titulo-modal{
+    display: flex;
+    justify-content: center;
+    color: #D9A956;
+    font-size: 30px;
+}
+  
+.add-item{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.titulo-alteracao{
+    color: #D9A956;
+    font-size: 30px;
+}
+
+.engloba-add{
+    padding: 10px;
+}
+
+.engloba-add input, .engloba-add select{
+    width: 90%; 
+    padding: 10px;
+    box-sizing: border-box; 
+}
+
+.engloba-botoes {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .botao-salvar, .fechar-modal {
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 40px;
+    padding: 10px;
+    width: 130px;
+    cursor: pointer;
+  }
+  
+  .botao-salvar:hover, .fechar-modal:hover {
+    background-color: #D9A956;
+}
+
+.modal-excluir{
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #64232B;
+    height: 150px;
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
