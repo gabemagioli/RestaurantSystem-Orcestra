@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
 
 function pgInicialAdm() {
+    const navigate = useNavigate();
+
+    const handleNavigateLogin = () => {
+        navigate("/");
+      }
+
   return (
     <body> 
         <header id="cabecalho">
@@ -10,19 +17,16 @@ function pgInicialAdm() {
         </div>
 
         <nav class="nav-bar">
-            <div><a href="#link-add" class="anchor-navbar">Adicionar itens</a></div>
+            <div className="links">Adicionar itens</div> {/*NAVEGAÇÃO FALTANDO*/}
+            <div className="links" onClick={handleNavigateLogin}>Deslogar</div> {/*navegacao para login ok*/}
         </nav>
         </header>
 
         <div className="engolba-pg">
-            <div className="cabecalho-comidas">
-            <div><a href="#link-brasil" class="anchor-comida">Brasileiras</a></div>
-            <div><a href="#link-arabia" class="anchor-comida">Árabes</a></div>
-            <div><a href="#link-franca" class="anchor-comida">Francesas</a></div>
-            <div><a href="#link-italia" class="anchor-comida">Italianas</a></div>
-            <div><a href="#link-tailandia" class="anchor-comida">Tailandesas</a></div>
+            <div className="cabecalho">
+                {/*ADICIONAR BARRA DE PESQUISA*/}
             </div>
-            <h1 class="texto-cadapio">Confira as preferidas dos clientes!</h1>
+            <h1 class="texto-cadapio">Todas as comidas:</h1>
             <div className="cardapio">
                 <div className="refeicao">
                     <img src="https://i.panelinha.com.br/i1/228-q-1438-feijoada-na-pressao.webp" alt="Imagem da Refeição" className="imagem-refeicao" />
@@ -32,8 +36,8 @@ function pgInicialAdm() {
                         <span className="preco-refeicao">R$ 10,00</span>
                     </div>
                     <div className="botoes">
-                        <button className="botao-infos">Editar infos</button>
-                        <button className="botao-infos">Excluir</button>
+                        <button className="botao-infos">Editar infos</button> {/*NAVEGAÇÃO FALTANDO*/}
+                        <button className="botao-infos">Excluir</button> {/*NAVEGAÇÃO FALTANDO*/}
                     </div>
                 </div>
             </div>

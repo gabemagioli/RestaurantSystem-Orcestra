@@ -69,6 +69,7 @@ body {
     background:none;
     color:#D9A956;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .cadastro:hover{
     color:#ffe6bb;
@@ -81,8 +82,23 @@ body {
     width:25%;
     color:#64232B;
     font-weight: bold;
+    cursor: pointer;
 }
 .entrar:hover{
+    color:#ffe6bb;
+    transition: 0.5s;
+}
+
+.entrar-adm{
+    border:none;
+    background:none;
+    color:#D9A956;
+    margin-bottom: 20px;
+    cursor: pointer;
+    margin-top: auto;
+}
+
+.entrar-adm:hover{
     color:#ffe6bb;
     transition: 0.5s;
 }

@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './cadastro.css';
 
 function Cadastro() {
+  const navigate = useNavigate();
+    const handleNavigateLogin = () => {
+    navigate("/");
+  }
+
   return (
     <body>
       <section className="engloba-login">
@@ -10,7 +16,6 @@ function Cadastro() {
           <h2 id="subtitulo-restaurante">Subtítulo aqui</h2>
         </div>
         <div className="login">
-          {/* <div className="titulo">Login</div> */}
           <div className="campo">
             <label htmlFor="nome" className="label">Nome: </label>
             <input type="text" id="nome" name="nome" placeholder="Digite seu nome" />
@@ -24,11 +29,11 @@ function Cadastro() {
             <input type="password" id="senha" name="senha" placeholder="Digite sua senha" />
           </div>
           <div className="campo">
-            <label htmlFor="senha" className="label">Confirmação de senha: </label>
-            <input type="password" id="senha" name="senha" placeholder="Digite sua senha novamente" />
+            <label htmlFor="senha-nova" className="label">Confirmação de senha: </label>
+            <input type="password" id="senha-nova" name="senha" placeholder="Digite sua senha novamente" />
           </div>
         </div>
-        <button className="cadastrar">CONCLUIR</button>
+        <button className="cadastrar" onClick={handleNavigateLogin}>CONCLUIR</button> {/*navegacao para login ok*/}
       </section>
     </body>
   );

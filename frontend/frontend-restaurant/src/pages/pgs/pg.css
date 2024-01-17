@@ -57,7 +57,7 @@
     border-radius: 20px;
 }
 
-.cabecalho-comidas{
+.cabecalho{
     background-color: #654A35;
     margin-top: 150px;
     height: 50px;
@@ -72,17 +72,16 @@
     font-size: 25px;
 }
 
-.cabecalho-comidas{
+.cabecalho{
     display: flex;
     padding: 10px;
     justify-content:center
 }
 
-#comida{
+.comida-destaque{
     color: #D9A956;
     padding: 10px;
     font-size: 25px;
-    margin-top: -10px;
 }
 
 .texto-cadapio{

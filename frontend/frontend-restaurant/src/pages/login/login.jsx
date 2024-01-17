@@ -7,6 +7,15 @@ function Login() {
   const handleNavigateCadastro = () => {
     navigate("/cadastro");
   }
+
+  const handleNavigatePgInicial = () => {
+    navigate("/pgInicial");
+  }
+
+  const handleNavigateLoginAdm = () => {
+    navigate("/loginAdm");
+  }
+
   return (
     <body>
       <section className="engloba-login">
@@ -25,7 +34,8 @@ function Login() {
           </div>
         </div>
         <button className="cadastro" onClick={handleNavigateCadastro}>Cadastre-se!</button>{/*navegacao para cadastro ok*/}
-        <button className="entrar">ENTRAR</button>
+        <button className="entrar" onClick={handleNavigatePgInicial}>ENTRAR</button> {/*NAO FUNCIONA*/}
+        <button className="entrar-adm" onClick={handleNavigateLoginAdm}>sou administrador</button> {/*NAO FUNCIONA*/}
       </section>
     </body>
   );
