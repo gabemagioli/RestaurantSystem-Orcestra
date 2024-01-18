@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
+import SearchBar from '../../components/SearchBar';
 
 function pgInicialAdm() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false);
   const [isEditConfirmationOpen, setIsEditConfirmationOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (value) => {
+    setSearchTerm(value);
+    // Lógica de pesquisa
+  };
 
   const handleNavigateLogin = () => {
     navigate("/");
@@ -56,8 +63,11 @@ function pgInicialAdm() {
         <div>
           <h1 id="titulo-principal">Restaurante XXX</h1>
         </div>
-
         <nav className="nav-bar">
+          <SearchBar
+            placeholder="Pesquisar nome da refeição"
+            onSearch={handleSearch}
+          />
           <div className="links" onClick={handleOpenModal}>Adicionar itens</div>
           <div className="links" onClick={handleNavigateLogin}>Deslogar</div>
         </nav>
@@ -65,11 +75,6 @@ function pgInicialAdm() {
 
       <div className="engloba-pg">
         <div className="cabecalho">
-            <input
-                type="text"
-                placeholder="Pesquisar nome da refeição"
-                onChange={(e) => handleSearch(e.target.value)}
-            />
         </div>
         <h1 className="texto-cadapio">Todas as comidas:</h1>
         <div className="cardapio">
