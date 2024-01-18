@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
@@ -11,6 +12,8 @@ const port = 8080;
 const Food = require("./models/Food");
 const Client = require("./models/Client");
 const Admin = require("./models/Admin");
+
+app.use(cors());
 
 //checking if jwt token is valid
 function checkJWT(req, res, next){//working, its making the validation

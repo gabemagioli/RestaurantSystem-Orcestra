@@ -38,7 +38,7 @@ function pgBr() {//pratos brasil
   const handleNavigatePgTailandia = () => {
     navigate("/pgTailandia");
   }
-
+    const comida = [];
     const[pratos, setPratos] = useState([]);
 
     const getPratosBrasileiros = async() => {
@@ -49,6 +49,7 @@ function pgBr() {//pratos brasil
             const data = response.data;
             //filtra os pratos que possuem nacionalidade brasileira e adiciona na lista
             const pratosBrasileiros = data.filter(prato => prato.nationality === "Brasil");
+            console.log(pratosBrasileiros);
 
             setPratos(pratosBrasileiros);
         }
