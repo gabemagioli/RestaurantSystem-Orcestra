@@ -45,8 +45,12 @@ function pgBr() {//pratos brasil
         try{
             const response = await axios.get("http://localhost:8080/food");
 
+            //recebe a lista com todos pratos
             const data = response.data;
-            setPratos(data);
+            //filtra os pratos que possuem nacionalidade brasileira e adiciona na lista
+            const pratosBrasileiros = data.filter(prato => prato.nationality === "Brasil");
+
+            setPratos(pratosBrasileiros);
         }
         catch(err){
             console.log(err);
