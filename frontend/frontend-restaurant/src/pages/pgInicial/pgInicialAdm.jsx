@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
-import SearchBar from '../../components/SearchBar';
+import SearchBar from '../../components/searchBar/SearchBar';
 
 function pgInicialAdm() {
   const navigate = useNavigate();
