@@ -1,9 +1,43 @@
 import React from 'react';
 import './pg.css';
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function pgBr() {//pratos brasil
+    const navigate = useNavigate();
+
+    const handleNavigateLogin = () => {
+     navigate("/");
+ }
+
+    const handleNavigatePerfil = () => {
+    navigate("/perfil");
+  }
+
+  const handleNavigateCarrinho = () => {
+    navigate("/carrinho");
+  }
+
+  const handleNavigatePgInicial = () => {
+    navigate("/pgInicial");
+  }
+
+  const handleNavigatePgArabia = () => {
+    navigate("/pgArabia");
+  }
+
+  const handleNavigatePgFranca = () => {
+    navigate("/pgFranca");
+  }
+
+  const handleNavigatePgItalia = () => {
+    navigate("/pgItalia");
+  }
+
+  const handleNavigatePgTailandia = () => {
+    navigate("/pgTailandia");
+  }
 
     const[pratos, setPratos] = useState([]);
 
@@ -37,18 +71,20 @@ function pgBr() {//pratos brasil
             </div>
 
             <nav class="nav-bar">
-                <div><a href="#link-perfil" class="anchor-navbar">Perfil</a></div>
-                <div><a href="#link-carrinho" class="anchor-navbar">Carrinho</a></div>
+            <div className="links" onClick={handleNavigatePerfil}>Perfil</div> {/*navegacao para perfik ok*/}
+            <div className="links" onClick={handleNavigateCarrinho}>Carrinho</div> {/*navegacao para carrinho ok*/}
+            <div className="links" onClick={handleNavigateLogin}>Deslogar</div> {/*navegacao para login ok*/}
             </nav>
         </div>
 
         <div className="engolba-pg">
-            <div className="cabecalho-comidas">
-            <div id="comida"> Brasileiras </div>
-            <div><a href="#link-arabia" class="anchor-comida">Árabes</a></div>
-            <div><a href="#link-franca" class="anchor-comida">Francesas</a></div>
-            <div><a href="#link-italia" class="anchor-comida">Italianas</a></div>
-            <div><a href="#link-tailandia" class="anchor-comida">Tailandesas</a></div>
+            <div className="cabecalho">
+            <div className="comida" onClick={handleNavigatePgInicial}>Todas</div> {/*navegacao para todas ok*/}
+            <div className="comida-destaque"> Brasileiras </div>
+            <div className="comida" onClick={handleNavigatePgArabia}>Árabes</div>  {/*navegacao para arabia ok*/}
+            <div className="comida" onClick={handleNavigatePgFranca}>Francesas</div> {/*navegacao para frança ok*/}
+            <div className="comida" onClick={handleNavigatePgItalia}>Italianas</div> {/*navegacao para italia ok*/}
+            <div className="comida" onClick={handleNavigatePgTailandia}>Tailandesas</div> {/*navegacao para tailandia ok*/}
             </div>
             <h1 class="texto-cadapio">Não fuja de suas raízes!</h1>
             <div className="cardapio">

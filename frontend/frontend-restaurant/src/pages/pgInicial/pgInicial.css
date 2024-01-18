@@ -19,36 +19,20 @@
     color:#D9A956;
 }
 
-/* header - barra de navegacao */
-.nav-bar{
-    display:flex;
-    flex-direction:row;
-    margin-right: 30px;
-}
-
-/* header - design das divs da nav bar*/
-.nav-bar div{
-    margin-left: 30px;
-    font-weight: bold;
-}
-
-/* header */
-.anchor-navbar{
+/* links para perfil e carrinho - cliente e adicionar itens - adm*/
+.links{
+    padding: 10px;
+    height: 30px;
     color:#F1EEE3;
+    cursor: pointer;
 }
 
-/* links para perfil e carrinho */
-#link-perfil{
-    padding: 10px;
-    height: 30px;
+.links:hover{
+    color:#D9A956;
+    transition: 0.5s;
 }
 
-#link-carrinho{
-    padding: 10px;
-    height: 30px;
-}
-
-.engolba-pg{
+.engloba-pg{
     background-color: #AF9676;
     margin-top: 150px;
     height: 500px;
@@ -57,25 +41,34 @@
     border-radius: 20px;
 }
 
-.cabecalho-comidas{
+.cabecalho{
     background-color: #654A35;
     margin-top: 150px;
     height: 50px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    display: flex;
+    padding: 10px;
+    justify-content:center
 }
 
-/* links para cada pagina especifica da comida */
-.anchor-comida{
-    color: #F1EEE3;
+.comida-destaque{
+    color: #D9A956;
     padding: 10px;
     font-size: 25px;
 }
 
-.cabecalho-comidas{
-    display: flex;
+/* links para cada pagina especifica da comida - cliente*/
+.comida{
+    color: #F1EEE3;
     padding: 10px;
-    justify-content:center
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.comida:hover{
+    color:#D9A956;
+    transition: 0.5s;
 }
 
 .texto-cardapio{
@@ -122,17 +115,7 @@
     font-size: 16px;
 }
 
-.botao-adicionar{
-    margin-left: 850px;
-    margin-top: 10px;
-    height: 80px;
-    border-radius: 10px;
-}
-
-.botao-adicionar:hover{
-    background-color: #D9A956;
-}
-
+/* alinhar botoes editar infos e excluir - adm*/
 .botoes{
     margin-left: 850px;
     margin-top: 10px;
@@ -142,12 +125,90 @@
     flex-direction: column;
 }
 
-.botao-infos{
+/* botao adicionar - cliente / botao-infos - adm */
+.botao-infos, .botao-adicionar{
     height: 40px;
     padding: 10px;
     width: 130px;
+    cursor: pointer;
 }
 
-.botao-infos:hover{
+.botao-infos:hover, .botao-adicionar:hover{
     background-color: #D9A956;
 }
+
+/*pop-ups para o adm - criar, editar e excluir pratos*/
+.modal-overlay{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-add {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #64232B;
+    height: 520px;
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+.titulo-modal{
+    display: flex;
+    justify-content: center;
+    color: #D9A956;
+    font-size: 30px;
+}
+  
+.add-item{
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+.titulo-alteracao{
+    color: #D9A956;
+    font-size: 30px;
+}
+
+.engloba-add{
+    padding: 10px;
+}
+
+.engloba-add input, .engloba-add select{
+    width: 90%; 
+    padding: 10px;
+    box-sizing: border-box; 
+}
+
+.engloba-botoes {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .botao-salvar, .fechar-modal {
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 40px;
+    padding: 10px;
+    width: 130px;
+    cursor: pointer;
+  }
+  
+  .botao-salvar:hover, .fechar-modal:hover {
+    background-color: #D9A956;
+}
+
+.modal-excluir{
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #64232B;
+    height: 150px;
+    width: 60%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }

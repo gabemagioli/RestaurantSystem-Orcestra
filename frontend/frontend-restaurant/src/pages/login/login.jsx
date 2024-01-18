@@ -2,13 +2,20 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 
-
 function Login() {
-
   const navigate = useNavigate();
   const handleNavigateCadastro = () => {
     navigate("/cadastro");
   }
+
+  const handleNavigatePgInicial = () => {
+    navigate("/pgInicial");
+  }
+
+  const handleNavigateLoginAdm = () => {
+    navigate("/loginAdm");
+  }
+
   return (
     <body>
       <section className="engloba-login">
@@ -27,7 +34,8 @@ function Login() {
           </div>
         </div>
         <button className="cadastro" onClick={handleNavigateCadastro}>Cadastre-se!</button>{/*navegacao para cadastro ok*/}
-        <button className="entrar">ENTRAR</button>
+        <button className="entrar" onClick={handleNavigatePgInicial}>ENTRAR</button> {/*NAO FUNCIONA*/}
+        <button className="entrar-adm" onClick={handleNavigateLoginAdm}>sou administrador</button> {/*NAO FUNCIONA*/}
       </section>
     </body>
   );

@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './loginAdm.css';
 
 function LoginAdm() {
+  const navigate = useNavigate();
+  const handleNavigatePgInicialAdm = () => {
+    navigate("/pgInicialAdm");
+  }
+
   return (
     <body>
       <section className="engloba-login">
@@ -10,7 +16,6 @@ function LoginAdm() {
           <h2 id="subtitulo-restaurante">Subtítulo aqui</h2>
         </div>
         <div className="login">
-          {/* <div className="titulo">Login</div> */}
           <div className="campo">
             <label htmlFor="email" className="label">Email: </label>
             <input type="text" id="email" name="email" placeholder="Digite seu email da empresa" />
@@ -21,7 +26,7 @@ function LoginAdm() {
           </div>
         </div>
 
-        <button className="entrar">ENTRAR</button>
+        <button className="entrar" onClick={handleNavigatePgInicialAdm}>ENTRAR</button> {/*navegacao para pgInicialAdm ok*/}
       </section>
     </body>
   );

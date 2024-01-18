@@ -1,14 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './pgInicial.css';
+import './pg.css';
 
-function pgInicial() {
+function pgFr() {
     const navigate = useNavigate();
 
     const handleNavigateLogin = () => {
-      navigate("/");
-    }
-
+    navigate("/");
+ }
     const handleNavigatePerfil = () => {
     navigate("/perfil");
   }
@@ -17,16 +16,16 @@ function pgInicial() {
     navigate("/carrinho");
   }
 
+  const handleNavigatePgInicial = () => {
+    navigate("/pgInicial");
+  }
+
   const handleNavigatePgBrasil = () => {
     navigate("/pgBrasil");
   }
 
   const handleNavigatePgArabia = () => {
     navigate("/pgArabia");
-  }
-
-  const handleNavigatePgFranca = () => {
-    navigate("/pgFranca");
   }
 
   const handleNavigatePgItalia = () => {
@@ -51,16 +50,16 @@ function pgInicial() {
         </nav>
         </header>
 
-        <div className="engloba-pg">
+        <div className="engolba-pg">
             <div className="cabecalho">
-            <div className="comida-destaque"> Todas </div>
+            <div className="comida" onClick={handleNavigatePgInicial}>Todas</div> {/*navegacao para todas ok*/}
             <div className="comida" onClick={handleNavigatePgBrasil}>Brasileiras</div> {/*navegacao para brasil ok*/}
             <div className="comida" onClick={handleNavigatePgArabia}>Árabes</div>  {/*navegacao para arabia ok*/}
-            <div className="comida" onClick={handleNavigatePgFranca}>Francesas</div> {/*navegacao para frança ok*/}
+            <div className="comida-destaque">Francesas</div>
             <div className="comida" onClick={handleNavigatePgItalia}>Italianas</div> {/*navegacao para italia ok*/}
             <div className="comida" onClick={handleNavigatePgTailandia}>Tailandesas</div> {/*navegacao para tailandia ok*/}
             </div>
-            <h1 class="texto-cardapio">Confira as preferidas dos clientes!</h1>
+            <h1 class="texto-cadapio">C'est la vie!</h1>
             <div className="cardapio">
                 <div className="refeicao">
                     <img src="https://i.panelinha.com.br/i1/228-q-1438-feijoada-na-pressao.webp" alt="Imagem da Refeição" className="imagem-refeicao" />
@@ -77,4 +76,4 @@ function pgInicial() {
   );
 }
 
-export default pgInicial;
+export default pgFr;
