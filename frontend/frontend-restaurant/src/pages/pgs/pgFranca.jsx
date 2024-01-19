@@ -1,6 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './pg.css';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function pgFr() {
     const navigate = useNavigate();
@@ -36,6 +38,30 @@ function pgFr() {
     navigate("/pgTailandia");
   }
 
+  const[pratos, setPratos] = useState([]);
+
+  const getPratosFranceses = async() => {
+      try{
+          const response = await axios.get("http://localhost:8080/food");
+
+          //recebe a lista com todos pratos
+          const data = response.data;
+
+          const pratosFranceses = data.filter(prato => prato.nationality === "Franca");
+          console.log(pratosFranceses);
+
+          setPratos(pratosFranceses);
+      }
+      catch(err){
+          console.log(err);
+      }
+
+  }
+
+  useEffect(() => {
+      getPratosFranceses();
+  }, []);
+
   return (
     <body> 
         <header id="cabecalho">
@@ -61,15 +87,15 @@ function pgFr() {
             </div>
             <h1 class="texto-cadapio">C'est la vie!</h1>
             <div className="cardapio">
-                <div className="refeicao">
-                    <img src="https://i.panelinha.com.br/i1/228-q-1438-feijoada-na-pressao.webp" alt="Imagem da Refeição" className="imagem-refeicao" />
-                    <div className="detalhes-refeicao">
-                        <span className="tipo-comida">Tipo de Comida</span>
-                        <h3 className="nome-refeicao">Nome da Refeição</h3>
-                        <span className="preco-refeicao">R$ 10,00</span>
-                    </div>
-                    <button className="botao-adicionar">Adicionar ao carrinho</button>
-                </div>
+            {pratos.length === 0 ? (<p>Carregando os nossos deliciosos pratos...</p>) :
+            pratos.map(prato => (//depois implementar uma forma de puxar apenas os pratos com nacionalidade br -> if(pratos.nacionalidade == brasil) -> retornar prato ->>> validacao a ser feita na funcao getPratosBrasileiros
+              <div className="refeicao" key={prato.id}>
+                <img src={prato.image_url} className="imagem-refeicao"/>{/*estilizar depois ou atribuir o nome das classes que foram feitas antes*/}
+                <h2 className="nome-refeicao">{prato.name}</h2>
+                <p>{prato.description}</p>
+                <p className="preco-refeicao">{prato.price}</p>
+              </div>
+            ))}
             </div>
         </div>
     </body>

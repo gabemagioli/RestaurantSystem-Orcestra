@@ -1,0 +1,14 @@
+.searchBar{
+  width:550px;
+}
+.pesquisar{
+  margin-right:100px;
+  background-color: rgb(210, 193, 160);
+  border:none;
+  color:white;
+  font-weight:bold;
+  height:48px;
+  margin-top:1px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}

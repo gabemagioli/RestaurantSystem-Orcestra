@@ -46,7 +46,7 @@ function pgAr() {
 
           //recebe a lista com todos pratos
           const data = response.data;
-          //filtra os pratos que possuem nacionalidade brasileira e adiciona na lista
+
           const pratosArabes = data.filter(prato => prato.nationality === "Arabia");
           console.log(pratosArabes);
 
