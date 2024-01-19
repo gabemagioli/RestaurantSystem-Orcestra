@@ -45,6 +45,11 @@ function pgTl() {
         </div>
 
         <nav class="nav-bar">
+            <input
+              type="text"
+              placeholder="Pesquisar nome da refeição"
+              onChange={(e) => handleSearch(e.target.value)}
+            />
             <div className="links" onClick={handleNavigatePerfil}>Perfil</div> {/*navegacao para perfik ok*/}
             <div className="links" onClick={handleNavigateCarrinho}>Carrinho</div> {/*navegacao para carrinho ok*/}
             <div className="links" onClick={handleNavigateLogin}>Deslogar</div> {/*navegacao para login ok*/}
@@ -69,7 +74,7 @@ function pgTl() {
                         <h3 className="nome-refeicao">Nome da Refeição</h3>
                         <span className="preco-refeicao">R$ 10,00</span>
                     </div>
-                    <button className="botao-adicionar">Adicionar ao carrinho</button>
+                    <button className="botao-adicionar-carrinho">Adicionar ao carrinho</button>
                 </div>
             </div>
         </div>

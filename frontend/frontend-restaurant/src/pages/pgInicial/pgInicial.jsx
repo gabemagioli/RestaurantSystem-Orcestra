@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
-import SearchBar from '../../components/searchBar/SearchBar';
 
 function pgInicial() {
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleSearch = (value) => {
-      setSearchTerm(value);
-      // Lógica de pesquisa
-    };
 
     const handleNavigateLogin = () => {
       navigate("/");
@@ -52,9 +45,10 @@ function pgInicial() {
         </div>
 
         <nav class="nav-bar">
-            <SearchBar
-                placeholder="Pesquisar nome da refeição"
-                onSearch={handleSearch}
+            <input
+              type="text"
+              placeholder="Pesquisar nome da refeição"
+              onChange={(e) => handleSearch(e.target.value)}
             />
             <div className="links" onClick={handleNavigatePerfil}>Perfil</div> {/*navegacao para perfik ok*/}
             <div className="links" onClick={handleNavigateCarrinho}>Carrinho</div> {/*navegacao para carrinho ok*/}
@@ -80,7 +74,7 @@ function pgInicial() {
                         <h3 className="nome-refeicao">Nome da Refeição</h3>
                         <span className="preco-refeicao">R$ 10,00</span>
                     </div>
-                    <button className="botao-adicionar">Adicionar ao carrinho</button>
+                    <button className="botao-adicionar-carrinho">Adicionar ao carrinho</button>
                 </div>
             </div>
         </div>
