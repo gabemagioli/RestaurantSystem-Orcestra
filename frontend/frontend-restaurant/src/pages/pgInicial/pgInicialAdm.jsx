@@ -97,7 +97,7 @@ function pgInicialAdm() {
                 <div className="titulo-alteracao">Tipo de comida:</div>
                 <select>
                   <option value="opcao1">Brasileira</option>
-                  <option value="opcao2">Árabe</option>
+                  <option value="opcao2">Arabe</option>
                   <option value="opcao3">Francesa</option>
                   <option value="opcao3">Italiana</option>
                   <option value="opcao3">Tailandesa</option>
