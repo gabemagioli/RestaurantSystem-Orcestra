@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
-import SearchBar from '../../components/SearchBar';
+// import SearchBar from '../../components/SearchBar';
 
 function pgInicial() {
     const navigate = useNavigate();
@@ -52,10 +52,10 @@ function pgInicial() {
         </div>
 
         <nav class="nav-bar">
-            <SearchBar
+            {/* <SearchBar
                 placeholder="Pesquisar nome da refeição"
                 onSearch={handleSearch}
-            />
+            /> */}
             <div className="links" onClick={handleNavigatePerfil}>Perfil</div> {/*navegacao para perfik ok*/}
             <div className="links" onClick={handleNavigateCarrinho}>Carrinho</div> {/*navegacao para carrinho ok*/}
             <div className="links" onClick={handleNavigateLogin}>Deslogar</div> {/*navegacao para login ok*/}

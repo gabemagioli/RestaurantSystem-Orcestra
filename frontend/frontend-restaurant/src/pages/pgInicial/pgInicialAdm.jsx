@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
-import SearchBar from '../../components/SearchBar';
+// import SearchBar from '../../components/SearchBar';
 
 function pgInicialAdm() {
   const navigate = useNavigate();
@@ -64,10 +64,10 @@ function pgInicialAdm() {
           <h1 id="titulo-principal">Restaurante XXX</h1>
         </div>
         <nav className="nav-bar">
-          <SearchBar
+          {/* <SearchBar
             placeholder="Pesquisar nome da refeição"
             onSearch={handleSearch}
-          />
+          /> */}
           <div className="links" onClick={handleOpenModal}>Adicionar itens</div>
           <div className="links" onClick={handleNavigateLogin}>Deslogar</div>
         </nav>

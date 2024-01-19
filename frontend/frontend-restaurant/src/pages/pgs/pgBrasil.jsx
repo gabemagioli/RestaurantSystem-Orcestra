@@ -38,7 +38,6 @@ function pgBr() {//pratos brasil
   const handleNavigatePgTailandia = () => {
     navigate("/pgTailandia");
   }
-    const comida = [];
     const[pratos, setPratos] = useState([]);
 
     const getPratosBrasileiros = async() => {
