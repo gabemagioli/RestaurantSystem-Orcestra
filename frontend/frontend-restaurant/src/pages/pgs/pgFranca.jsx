@@ -47,7 +47,7 @@ function pgFr() {
           //recebe a lista com todos pratos
           const data = response.data;
 
-          const pratosFranceses = data.filter(prato => prato.nationality === "Franca");
+          const pratosFranceses = data.filter(prato => prato.nationality === "Francesa");
           console.log(pratosFranceses);
 
           setPratos(pratosFranceses);
@@ -70,6 +70,11 @@ function pgFr() {
         </div>
 
         <nav class="nav-bar">
+            <input
+              type="text"
+              placeholder="Pesquisar nome da refeição"
+              onChange={(e) => handleSearch(e.target.value)}
+            />
             <div className="links" onClick={handleNavigatePerfil}>Perfil</div> {/*navegacao para perfik ok*/}
             <div className="links" onClick={handleNavigateCarrinho}>Carrinho</div> {/*navegacao para carrinho ok*/}
             <div className="links" onClick={handleNavigateLogin}>Deslogar</div> {/*navegacao para login ok*/}

@@ -19,6 +19,17 @@
     color:#D9A956;
 }
 
+/* barra de pesquisa */
+.nav-bar input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 250px;
+    display: flex;
+  }
+
 /* links para perfil e carrinho - cliente e adicionar itens - adm*/
 .links{
     padding: 10px;
@@ -115,9 +126,26 @@
     font-size: 16px;
 }
 
+/* adicionar produto ao carrinho - cliente */
+.botao-adicionar-carrinho{
+    height: 80px;
+    padding: 10px;
+    width: 130px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left:auto;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.botao-adicionar-carrinho:hover{
+    background-color: #D9A956;
+}
+
 /* alinhar botoes editar infos e excluir - adm*/
 .botoes{
-    margin-left: 850px;
+    margin-left: auto;
+    margin-right: 20px;
     margin-top: 10px;
     height: 80px;
     border-radius: 10px;

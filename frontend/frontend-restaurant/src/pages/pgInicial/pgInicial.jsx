@@ -10,12 +10,6 @@ import SearchBar from '../../components/searchBar/SearchBar';
 
 function pgInicial() {
     const navigate = useNavigate();
-    const [searchTerm, setSearchTerm] = useState('');
-
-    const handleSearch = (value) => {
-      setSearchTerm(value);
-      // Lógica de pesquisa
-    };
 
     const handleNavigateLogin = () => {
       navigate("/");
@@ -79,10 +73,7 @@ function pgInicial() {
         </div>
 
         <nav class="nav-bar">
-            <SearchBar
-                placeholder="Pesquisar nome da refeição"
-                onSearch={handleSearch}
-            />
+            <SearchBar />
             <div className="links" onClick={handleNavigatePerfil}>Perfil</div> {/*navegacao para perfik ok*/}
             <div className="links" onClick={handleNavigateCarrinho}>Carrinho</div> {/*navegacao para carrinho ok*/}
             <div className="links" onClick={handleNavigateLogin}>Deslogar</div> {/*navegacao para login ok*/}

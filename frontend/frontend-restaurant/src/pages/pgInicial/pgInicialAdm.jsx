@@ -8,12 +8,6 @@ function pgInicialAdm() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false);
   const [isEditConfirmationOpen, setIsEditConfirmationOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const handleSearch = (value) => {
-    setSearchTerm(value);
-    // Lógica de pesquisa
-  };
 
   const handleNavigateLogin = () => {
     navigate("/");
@@ -64,10 +58,7 @@ function pgInicialAdm() {
           <h1 id="titulo-principal">Restaurante XXX</h1>
         </div>
         <nav className="nav-bar">
-          <SearchBar
-            placeholder="Pesquisar nome da refeição"
-            onSearch={handleSearch}
-          />
+            <SearchBar />
           <div className="links" onClick={handleOpenModal}>Adicionar itens</div>
           <div className="links" onClick={handleNavigateLogin}>Deslogar</div>
         </nav>

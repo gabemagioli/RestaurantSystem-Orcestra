@@ -32,6 +32,17 @@
     font-weight: bold;
 }
 
+/* barra de pesquisa */
+.nav-bar input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 250px;
+    display: flex;
+  }
+
 /* header */
 .anchor-navbar{
     color:#F1EEE3;
@@ -128,13 +139,18 @@
     font-size: 16px;
 }
 
-.botao-adicionar{
-    margin-left: 850px;
-    margin-top: 10px;
+/* adicionar produto ao carrinho - cliente */
+.botao-adicionar-carrinho{
     height: 80px;
+    padding: 10px;
+    width: 130px;
     border-radius: 10px;
+    cursor: pointer;
+    margin-left:auto;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
-.botao-adicionar:hover{
+.botao-adicionar-carrinho:hover{
     background-color: #D9A956;
 }
