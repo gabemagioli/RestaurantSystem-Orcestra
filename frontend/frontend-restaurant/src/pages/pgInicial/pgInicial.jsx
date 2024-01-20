@@ -44,6 +44,7 @@ function pgInicial() {
   }
 
   const[pratos, setPratos] = useState([]);
+  const[search, setSearch] = useState('')
 
   const getPratos = async() => {
       try{
@@ -63,17 +64,20 @@ function pgInicial() {
   useEffect(() => {
       getPratos();
   }, []);
-
+const onSearch = () =>{
+  const pesquisa = pratos.filter(prato => prato.name.toLowerCase().indexOf(search) !== -1); 
+  return pesquisa;
+}
 
   return (
     <body> 
         <header id="cabecalho">
         <div>
-            <h1 id="titulo-principal">Restaurante XXX</h1>
+            <h1 id="titulo-principal">Orc'staurante</h1>
         </div>
 
         <nav class="nav-bar">
-            <SearchBar />
+            <SearchBar search={search} setSearch={setSearch} />
             <div className="links" onClick={handleNavigatePerfil}>Perfil</div> {/*navegacao para perfik ok*/}
             <div className="links" onClick={handleNavigateCarrinho}>Carrinho</div> {/*navegacao para carrinho ok*/}
             <div className="links" onClick={handleNavigateLogin}>Deslogar</div> {/*navegacao para login ok*/}
@@ -91,8 +95,8 @@ function pgInicial() {
             </div>
             <h1 class="texto-cardapio">Confira as preferidas dos clientes!</h1>
             <div className="cardapio">
-            {pratos.length === 0 ? (<p>Carregando os nossos deliciosos pratos...</p>) :
-            pratos.map(prato => (//depois implementar uma forma de puxar apenas os pratos com nacionalidade br -> if(pratos.nacionalidade == brasil) -> retornar prato ->>> validacao a ser feita na funcao getPratosBrasileiros
+            {onSearch().length === 0 ? (<p>Carregando os nossos deliciosos pratos...</p>) :
+            onSearch().map(prato => (//depois implementar uma forma de puxar apenas os pratos com nacionalidade br -> if(pratos.nacionalidade == brasil) -> retornar prato ->>> validacao a ser feita na funcao getPratosBrasileiros
               <div className="refeicao" key={prato.id}>
                 <img src={prato.image_url} className="imagem-refeicao"/>{/*estilizar depois ou atribuir o nome das classes que foram feitas antes*/}
                 <h2 className="nome-refeicao">{prato.name}</h2>

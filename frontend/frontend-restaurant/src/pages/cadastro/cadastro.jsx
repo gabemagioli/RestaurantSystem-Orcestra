@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 import './cadastro.css';
+
+const Signup = () =>{
+  const[name, setName] = useState('');
+  const[email, setEmail] = useState('');
+  const[password, setPassword] = useState('');
+  const[confirmpassword, setConfirmPassword] = useState('');
+
+
+  const handleSignup = () =>{
+    if (password != confirmpassword){
+      console.error('As senhas não são iguais.');
+      return;
+    }
+  }
+  axios.post('http://localhost:5173/register/client', { name, email, password })
+        .then(response => {
+          // envio do cadastro pro servidor
+          console.log('Cadastro bem-sucedido:', response.data);
+        })
+        .catch(error => {
+          // pegar o erro 
+          console.error('Erro no cadastro:', error);
+        });
+      };
 
 function Cadastro() {
   const navigate = useNavigate();

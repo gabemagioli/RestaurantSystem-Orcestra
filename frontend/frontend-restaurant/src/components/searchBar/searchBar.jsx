@@ -1,16 +1,16 @@
 import React from 'react';
 import "./searchBar.css";
 
-const SearchBar = ({ placeholder, onSearch }) => {
+const SearchBar = ({ search, setSearch }) => {
   const handleSearch = (e) => {
-    onSearch(e.target.value);
+    setSearch(e.target.value);
   };
 
   return (
     <>
       <input
           type="text"
-          placeholder={placeholder}
+          value={search}
           onChange={handleSearch}
           className="searchBar"
         />
