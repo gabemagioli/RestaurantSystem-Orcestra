@@ -115,7 +115,7 @@ app.post("/register/client", async (req, res) => {
             name,
             email,
             password: passwordHash,
-            role,
+            role: "user",
             italyMedal: 0,
             brazilMedal: 0,
             japanMedal: 0,
