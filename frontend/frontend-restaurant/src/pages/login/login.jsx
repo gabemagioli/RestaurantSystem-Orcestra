@@ -27,6 +27,7 @@ function Login() {
       navigate("/pgInicial");
 
     } catch (error) {
+      alert("Credencial invalida, confirme se sua senha ou email estao corretos!")
       console.error('Erro ao fazer login:', error);
       // exibe msg ao erro
     }

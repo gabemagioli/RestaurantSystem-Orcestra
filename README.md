@@ -13,6 +13,8 @@
 - CSS
 - Visual Studio Code
 
+## Sobre a ideia da Gamificacao implementada:
+
 ## Tipos de Player
 Nossa abordagem leva em consideração dois principais tipos de jogadores:
 
@@ -38,9 +40,42 @@ As medalhas são conquistadas através de pedidos de alimentos específicos. Cad
 - Ouro
 - Mestre
 
+## Sobre o Projeto de Software:
+
+## Organizacao:
+- Foram feitas duas pastas diferentes, uma para o backend e outra para o frontend.
+- backend: contem a API desenvolvida com ExpressJs e para armazenamento de dados esta sendo utilizado o MongoDB.
+- frontend: Projeto feito com ReactJs
+
 ## Tipos de Comida
 - Brasileiras
 - Francesas
 - Árabes
 - Italianas
 - Tailandesas
+
+## Configuração e Execução
+
+Certifique-se de ter o Node.js e o npm instalados em seu sistema antes de prosseguir.
+
+### Backend
+
+1. Abra um terminal na pasta "backend".
+2. Execute os seguintes comandos:
+
+```bash
+cd backend
+npm install
+npm start
+```
+### Frontend
+
+3. Abra um terminal na pasta "frontend".
+4. Execute os seguintes comandos:
+
+```bash
+cd frontend
+cd frontend-restaurant
+npm install
+npm run dev
+```
