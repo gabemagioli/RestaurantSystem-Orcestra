@@ -67,7 +67,7 @@ function pgBr() {//pratos brasil
     <body> 
         <div id="cabecalho">
             <div>
-                <h1 id="titulo-principal">Restaurante XXX</h1>
+                <h1 id="titulo-principal">Orc'staurante</h1>
             </div>
 
             <nav class="nav-bar">

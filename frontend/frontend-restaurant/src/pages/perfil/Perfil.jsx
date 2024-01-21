@@ -1,6 +1,7 @@
 import React from 'react';
 import './perfil.css';
 
+
 function Perfil() {
   return (
     <div>
@@ -9,7 +10,7 @@ function Perfil() {
           <h1 id="nome-restaurante">Orc'staurante</h1>
             <div className="sobre-cliente">
               <img src="https://cdn-icons-png.flaticon.com/512/1615/1615645.png" id="img-cliente" alt="Imagem do cliente" />
-              <h2 id="nome-cliente">Nome do cliente</h2>
+              <h2 id="nome-cliente">Cliente</h2>
             </div>
             <div className="medalhas">
               <div className="engloba-medalha">

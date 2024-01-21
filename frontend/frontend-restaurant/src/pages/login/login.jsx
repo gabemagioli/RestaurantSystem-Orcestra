@@ -31,7 +31,7 @@ function Login() {
       // exibe msg ao erro
     }
   }
-  alert("Verifique se seu e-mail e/ou senha estão corretos!");
+
 
   const handleNavigateLoginAdm = () => {
     navigate("/loginAdm");

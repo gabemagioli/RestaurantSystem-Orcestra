@@ -4,7 +4,7 @@ import Login from './pages/login/Login.jsx';
 import LoginAdm from './pages/loginAdm/loginAdm.jsx';
 import Cadastro from './pages/cadastro/cadastro.jsx';
 import PgInicial from './pages/pgInicial/pgInicial.jsx';
-import Perfil from './pages/perfil/perfil.jsx';
+import Perfil from './pages/perfil/Perfil.jsx';
 import Carrinho from './pages/carrinho/carrinho.jsx';
 import PgInicialAdm from './pages/pgInicial/pgInicialAdm.jsx';
 //as paginas abaixo sao referentes aos paises na qual o restaurante trabalha com a culinaria:

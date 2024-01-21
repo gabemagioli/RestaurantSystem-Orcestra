@@ -55,7 +55,7 @@ function pgInicialAdm() {
     <body>
       <header id="cabecalho">
         <div>
-          <h1 id="titulo-principal">Restaurante XXX</h1>
+          <h1 id="titulo-principal">Orc'staurante</h1>
         </div>
         <nav className="nav-bar">
             <SearchBar />

@@ -26,7 +26,7 @@ function LoginAdm() {
       // exibe msg ao encontrar um erro
     }
   }
-  alert("Verifique se seu e-mail e/ou senha estão corretos!");
+
 
 
   return (
