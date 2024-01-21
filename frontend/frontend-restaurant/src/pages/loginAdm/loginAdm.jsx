@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './loginAdm.css';
 
 function LoginAdm() {
   const navigate = useNavigate();
-  const handleNavigatePgInicialAdm = () => {
-    navigate("/pgInicialAdm");
+  const[email, setEmail] = useState('');
+  const[senha, setSenha] = useState('');
+
+  const handleNavigatePgInicialAdm = async () => {
+    try {
+
+      const response = await axios.post('http://localhost:8080/login/admin', {
+        email,
+        password: senha,
+      });
+
+      const token = response.data.token;
+      console.log('Token recebido:', token);
+
+      // vai para a página inicial após o login
+      navigate("/pgInicialAdm");
+
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      // exibe msg ao encontrar um erro
+    }
   }
+  alert("Verifique se seu e-mail e/ou senha estão corretos!");
+
 
   return (
     <body>

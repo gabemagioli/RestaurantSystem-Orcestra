@@ -6,7 +6,7 @@ function Perfil() {
     <div>
       <header>
         <div className="engloba-perfil">
-          <h1 id="nome-restaurante">Restaurante XXX</h1>
+          <h1 id="nome-restaurante">Orc'staurante</h1>
             <div className="sobre-cliente">
               <img src="https://cdn-icons-png.flaticon.com/512/1615/1615645.png" id="img-cliente" alt="Imagem do cliente" />
               <h2 id="nome-cliente">Nome do cliente</h2>
