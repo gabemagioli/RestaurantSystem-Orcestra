@@ -36,8 +36,8 @@ function Cadastro() {
     <body>
       <section className="engloba-login">
         <div className="restaurante-login">
-          <h1 id="nome-restaurante">Restaurante XXX</h1>
-          <h2 id="subtitulo-restaurante">Subtítulo aqui</h2>
+          <h1 id="nome-restaurante">Orc'staurante</h1>
+          <h2 id="subtitulo-restaurante">Preencha os campos abaixo</h2>
         </div>
         <div className="login">
           <div className="campo">

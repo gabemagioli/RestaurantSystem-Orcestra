@@ -30,6 +30,7 @@ body {
 }
 
 #nome-restaurante{
+    border-bottom: 50px;
     color: #D9A956;
 }
 
