@@ -137,7 +137,7 @@ function pgInicialAdm() {
                 </div>
                 <div className="botoes">
                   <button className="botao-infos" onClick={handleOpenEditConfirmation}>Editar infos</button>
-                  <button className="botao-infos"><DeletarPrato/></button>
+                  <DeletarPrato/>
                 </div>
               </>
               ))}
