@@ -2,12 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const DeletarPrato = () => {
+const DeletarPrato = ({props}) => {
     const { pratoId } = useParams();
   
     const handleDeletarPrato = async () => {
       try {
-        await axios.delete(`https://localhost:8080/food/${pratoId}`);
+        await axios.delete(`https://localhost:8080/food/${props}`);
         console.log('Prato excluído com sucesso!');
        
       } catch (error) {

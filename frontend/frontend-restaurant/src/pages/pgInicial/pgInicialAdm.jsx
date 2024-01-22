@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
+import { useParams } from "react-router-dom";
 import SearchBar from '../../components/searchBar/SearchBar';
 import axios from 'axios';
-import DeletarPrato from '../Pratos/DeletarPrato';
 
 function pgInicialAdm() {
   const navigate = useNavigate();
@@ -108,6 +108,20 @@ function pgInicialAdm() {
       getPratos();
   }, []);
 
+  
+  
+  const handleDeletarPrato = async () => {
+    // const { pratoId } = useParams();
+    try {
+      await axios.delete(`https://localhost:8080/food/${pratoId}`);
+      setIdDeletar(pratoId);
+      console.log('Prato excluído com sucesso!');
+     
+    } catch (error) {
+      console.error('Erro ao excluir prato:', error);
+    }
+  };
+
   return (
     <body>
       <header id="cabecalho">
@@ -137,7 +151,7 @@ function pgInicialAdm() {
                 </div>
                 <div className="botoes">
                   <button className="botao-infos" onClick={handleOpenEditConfirmation}>Editar infos</button>
-                  <DeletarPrato/>
+                  <button className="botao-infos" onClick={handleDeletarPrato}>Excluir</button>
                 </div>
               </>
               ))}
@@ -157,14 +171,14 @@ function pgInicialAdm() {
               </div>
               <div className="engloba-add">
                 <div className="titulo-alteracao">Tipo de comida:</div>
-                <select>
-                  <option value="opcao1">Brasileira</option>
-                  <option value="opcao2">Arabe</option>
-                  <option value="opcao3">Francesa</option>
-                  <option value="opcao3">Italiana</option>
-                  <option value="opcao3">Tailandesa</option>
-                </select>
-              </div>
+                  <select onChange={(e) => setNacionalidade(e.target.value)}>
+                    <option value="Brasileira">Brasileira</option>
+                    <option value="Arabe">Arabe</option>
+                    <option value="Francesa">Francesa</option>
+                    <option value="Italiana">Italiana</option>
+                    <option value="Tailandesa">Tailandesa</option>
+                  </select>
+                </div>
               <div className="engloba-add">
                 <div className="titulo-alteracao">Nome da refeição:</div>
                 <input type="texto-alteracao" placeholder="Digite o nome do prato" value={nome} onChange={(e) => setNome(e.target.value)} />
