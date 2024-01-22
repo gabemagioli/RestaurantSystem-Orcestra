@@ -2,12 +2,45 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
 import SearchBar from '../../components/searchBar/SearchBar';
+import axios from 'axios';
 
 function pgInicialAdm() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false);
   const [isEditConfirmationOpen, setIsEditConfirmationOpen] = useState(false);
+
+  const [nome, setNome] = useState("");
+  const [descricao, setDescricao] = useState("");
+  const [preco, setPreco] = useState("");
+  const [nacionalidade, setNacionalidade] = useState("");
+  const [imagem, setImagem] = useState("");
+
+  const handleCadastroPrato = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/food', {
+        name: nome,
+        description: "Muito bom",
+        price: preco,
+        nationality: nacionalidade,
+        image_url: imagem,
+      });
+
+
+      console.log('Resposta do backend:', response.data);
+
+      // cadastro com sucesso, campos serão reiniciados
+      setNome("");
+      setDescricao("");
+      setPreco("");
+      setNacionalidade("");
+      setImagem("");
+
+    } catch (error) {
+      console.error('Erro ao cadastrar prato:', error);
+      // erro
+    }
+  };
 
   const handleNavigateLogin = () => {
     navigate("/");
@@ -91,7 +124,7 @@ function pgInicialAdm() {
             <div className="add-item">
               <div className="engloba-add">
                 <div className="titulo-alteracao">Imagem do produto:</div>
-                <input type="texto-alteracao" placeholder="Digite a URL da imagem" />
+                <input type="texto-alteracao" placeholder="Digite a URL da imagem" value={imagem} onChange={(e) => setImagem(e.target.value)}/>
               </div>
               <div className="engloba-add">
                 <div className="titulo-alteracao">Tipo de comida:</div>
@@ -105,15 +138,15 @@ function pgInicialAdm() {
               </div>
               <div className="engloba-add">
                 <div className="titulo-alteracao">Nome da refeição:</div>
-                <input type="texto-alteracao" placeholder="Digite o nome do prato" />
+                <input type="texto-alteracao" placeholder="Digite o nome do prato" value={nome} onChange={(e) => setNome(e.target.value)} />
               </div>
               <div className="engloba-add">
                 <div className="titulo-alteracao">Preço:</div>
-                <input type="number" min="0" placeholder="Digite o preço" />
+                <input type="number" min="0" placeholder="Digite o preço" value={preco} onChange={(e) => setPreco(e.target.value)} />
               </div>
             </div>
             <div className="engloba-botoes">
-              <button className="botao-salvar" onClick={handleCloseModal}>Adicionar</button>
+              <button className="botao-salvar" onClick={handleCadastroPrato}>Adicionar</button>
               <button className="fechar-modal" onClick={handleCloseModal}>Fechar</button>
             </div>
           </div>

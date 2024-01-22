@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './loginAdm.css';
 
 function LoginAdm() {
@@ -24,7 +25,7 @@ function LoginAdm() {
     } catch (error) {
       alert("Credencial invalida, confirme se sua senha ou email estao corretos!")
       console.error('Erro ao fazer login:', error);
-      // exibe msg ao erro
+      //exibe msg ao erro
     }
   }
 
@@ -40,7 +41,12 @@ function LoginAdm() {
         <div className="login">
           <div className="campo">
             <label htmlFor="email" className="label">Email: </label>
-            <input type="text" id="email" name="email" placeholder="Digite seu email da empresa" onChange={(e) => setEmail(e.target.value)} />
+            <input type="text"
+            id="email"
+            name="email"
+            placeholder="Digite seu email da empresa"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}/>
           </div>
           <div className="campo">
             <label htmlFor="codigo" className="label">Código: </label>
