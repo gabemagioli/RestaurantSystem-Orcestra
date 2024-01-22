@@ -98,24 +98,24 @@ function pgInicialAdm() {
       </header>
 
       <div className="engloba-pg">
-        <div className="cabecalho">
-        </div>
-        <h1 className="texto-cadapio">Todas as comidas:</h1>
-        <div className="cardapio">
-          <div className="refeicao">
-            <img src="https://i.panelinha.com.br/i1/228-q-1438-feijoada-na-pressao.webp" alt="Imagem da Refeição" className="imagem-refeicao" />
-            <div className="detalhes-refeicao">
-              <span className="tipo-comida">Tipo de Comida</span>
-              <h3 className="nome-refeicao">Nome da Refeição</h3>
-              <span className="preco-refeicao">R$ 10,00</span>
-            </div>
-            <div className="botoes">
-              <button className="botao-infos" onClick={handleOpenEditConfirmation}>Editar infos</button>
-              <button className="botao-infos" onClick={handleOpenDeleteConfirmation}>Excluir</button>
+          <div className="cabecalho">
+          <h1 className="texto-cadapio">Todas as comidas:</h1>
+          <div className="cardapio">
+            <div className="refeicao">
+              <img src="https://i.panelinha.com.br/i1/228-q-1438-feijoada-na-pressao.webp" alt="Imagem da Refeição" className="imagem-refeicao" />
+              <div className="detalhes-refeicao">
+                <span className="tipo-comida">Tipo de Comida</span>
+                <h3 className="nome-refeicao">Nome da Refeição</h3>
+                <span className="preco-refeicao">R$ 10,00</span>
+              </div>
+              <div className="botoes">
+                <button className="botao-infos" onClick={handleOpenEditConfirmation}>Editar infos</button>
+                <button className="botao-infos" onClick={handleOpenDeleteConfirmation}>Excluir</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        </div>
 
       {isModalOpen && (
         <div className="modal-overlay">
