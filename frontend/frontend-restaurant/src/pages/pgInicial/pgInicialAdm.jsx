@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './pgInicial.css';
 import SearchBar from '../../components/searchBar/SearchBar';
 import axios from 'axios';
+import DeletarPrato from '../Pratos/DeletarPrato';
 
 function pgInicialAdm() {
   const navigate = useNavigate();
@@ -126,7 +127,7 @@ function pgInicialAdm() {
           <div className="cardapio">
             <div className="refeicao">
               {pratos.length === 0 ? (<p>Carregando os nossos deliciosos pratos...</p>) :
-              pratos.map(prato => (//depois implementar uma forma de puxar apenas os pratos com nacionalidade br -> if(pratos.nacionalidade == brasil) -> retornar prato ->>> validacao a ser feita na funcao getPratosBrasileiros
+              pratos.map(prato => (
               <>
                 <div className="refeicao" key={prato.id}>
                   <img src={prato.image_url} className="imagem-refeicao"/>{/*estilizar depois ou atribuir o nome das classes que foram feitas antes*/}
@@ -136,7 +137,7 @@ function pgInicialAdm() {
                 </div>
                 <div className="botoes">
                   <button className="botao-infos" onClick={handleOpenEditConfirmation}>Editar infos</button>
-                  <button className="botao-infos" onClick={handleOpenDeleteConfirmation}>Excluir</button>
+                  <button className="botao-infos"><DeletarPrato/></button>
                 </div>
               </>
               ))}
