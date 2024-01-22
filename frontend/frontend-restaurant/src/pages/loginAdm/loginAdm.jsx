@@ -43,7 +43,13 @@ function LoginAdm() {
           </div>
           <div className="campo">
             <label htmlFor="codigo" className="label">Código: </label>
-            <input type="password" id="senha" name="senha" placeholder="Digite seu código" />
+            <input 
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Digite seu código"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)} />
           </div>
         </div>
 
