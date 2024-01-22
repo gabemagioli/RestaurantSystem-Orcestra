@@ -91,14 +91,14 @@ function pgInicialAdm() {
           <h1 id="titulo-principal">Orc'staurante</h1>
         </div>
         <nav className="nav-bar">
-            <SearchBar />
+          <SearchBar />
           <div className="links" onClick={handleOpenModal}>Adicionar itens</div>
           <div className="links" onClick={handleNavigateLogin}>Deslogar</div>
         </nav>
       </header>
 
       <div className="engloba-pg">
-          <div className="cabecalho">
+        <div className="cabecalho">
           <h1 className="texto-cadapio">Todas as comidas:</h1>
           <div className="cardapio">
             <div className="refeicao">
@@ -115,7 +115,7 @@ function pgInicialAdm() {
             </div>
           </div>
         </div>
-        </div>
+      </div>
 
       {isModalOpen && (
         <div className="modal-overlay">
@@ -124,7 +124,7 @@ function pgInicialAdm() {
             <div className="add-item">
               <div className="engloba-add">
                 <div className="titulo-alteracao">Imagem do produto:</div>
-                <input type="texto-alteracao" placeholder="Digite a URL da imagem" value={imagem} onChange={(e) => setImagem(e.target.value)}/>
+                <input type="texto-alteracao" placeholder="Digite a URL da imagem" value={imagem} onChange={(e) => setImagem(e.target.value)} />
               </div>
               <div className="engloba-add">
                 <div className="titulo-alteracao">Tipo de comida:</div>
@@ -155,39 +155,39 @@ function pgInicialAdm() {
 
       {isEditConfirmationOpen && (
         <div className="modal-overlay">
-        <div className="modal-add">
-          <h1 className="titulo-modal">Editar um item</h1>
-          <div className="add-item">
-            <div className="engloba-add">
-              <div className="titulo-alteracao">Imagem do produto:</div>
-              <input type="texto-alteracao" placeholder="Digite a nova URL da imagem" />
+          <div className="modal-add">
+            <h1 className="titulo-modal">Editar um item</h1>
+            <div className="add-item">
+              <div className="engloba-add">
+                <div className="titulo-alteracao">Imagem do produto:</div>
+                <input type="texto-alteracao" placeholder="Digite a nova URL da imagem" />
+              </div>
+              <div className="engloba-add">
+                <div className="titulo-alteracao">Tipo de comida:</div>
+                <select>
+                  <option value="opcao1">Brasileira</option>
+                  <option value="opcao2">Árabe</option>
+                  <option value="opcao3">Francesa</option>
+                  <option value="opcao3">Italiana</option>
+                  <option value="opcao3">Tailandesa</option>
+                </select>
+              </div>
+              <div className="engloba-add">
+                <div className="titulo-alteracao">Nome da refeição:</div>
+                <input type="texto-alteracao" placeholder="Digite o novo nome do prato" />
+              </div>
+              <div className="engloba-add">
+                <div className="titulo-alteracao">Preço:</div>
+                <input type="number" min="0" placeholder="Digite o novo preço" />
+              </div>
             </div>
-            <div className="engloba-add">
-              <div className="titulo-alteracao">Tipo de comida:</div>
-              <select>
-                <option value="opcao1">Brasileira</option>
-                <option value="opcao2">Árabe</option>
-                <option value="opcao3">Francesa</option>
-                <option value="opcao3">Italiana</option>
-                <option value="opcao3">Tailandesa</option>
-              </select>
+            <div className="engloba-botoes">
+              <button className="botao-salvar" onClick={handleEditItem}>Editar</button>
+              <button className="fechar-modal" onClick={handleCloseEditConfirmation}>Fechar</button>
             </div>
-            <div className="engloba-add">
-              <div className="titulo-alteracao">Nome da refeição:</div>
-              <input type="texto-alteracao" placeholder="Digite o novo nome do prato" />
-            </div>
-            <div className="engloba-add">
-              <div className="titulo-alteracao">Preço:</div>
-              <input type="number" min="0" placeholder="Digite o novo preço" />
-            </div>
-          </div>
-          <div className="engloba-botoes">
-            <button className="botao-salvar" onClick={handleEditItem}>Editar</button>
-            <button className="fechar-modal" onClick={handleCloseEditConfirmation}>Fechar</button>
           </div>
         </div>
-      </div>
-    )}
+      )}
 
       {isDeleteConfirmationOpen && (
         <div className="modal-excluir">
