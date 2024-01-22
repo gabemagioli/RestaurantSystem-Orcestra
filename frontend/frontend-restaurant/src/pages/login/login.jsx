@@ -12,7 +12,7 @@ function Login() {
     navigate("/cadastro");
   }
 
-  const handleNavigatePgInicial = async () => {
+  const handleClientLogin = async () => {
     try {
 
       const response = await axios.post('http://localhost:8080/login/client', {
@@ -72,7 +72,7 @@ function Login() {
         <button className="cadastro" onClick={handleNavigateCadastro}>
           Cadastre-se!
         </button>
-        <button className="entrar" onClick={handleNavigatePgInicial}>
+        <button className="entrar" onClick={handleClientLogin}>
           ENTRAR
         </button>
         <button className="entrar-adm" onClick={handleNavigateLoginAdm}>

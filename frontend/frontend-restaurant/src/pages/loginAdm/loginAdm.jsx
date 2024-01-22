@@ -7,7 +7,7 @@ function LoginAdm() {
   const[email, setEmail] = useState('');
   const[senha, setSenha] = useState('');
 
-  const handleNavigatePgInicialAdm = async () => {
+  const handleAdmLogin = async () => {
     try {
 
       const response = await axios.post('http://localhost:8080/login/admin', {
@@ -20,6 +20,8 @@ function LoginAdm() {
 
       // vai para a página inicial após o login
       navigate("/pgInicialAdm");
+      setEmail("");
+      setSenha("");
 
     } catch (error) {
       console.error('Erro ao fazer login:', error);
@@ -53,7 +55,7 @@ function LoginAdm() {
           </div>
         </div>
 
-        <button className="entrar" onClick={handleNavigatePgInicialAdm}>ENTRAR</button> {/*navegacao para pgInicialAdm ok*/}
+        <button className="entrar" onClick={handleAdmLogin}>ENTRAR</button> {/*navegacao para pgInicialAdm ok*/}
       </section>
     </body>
   );
