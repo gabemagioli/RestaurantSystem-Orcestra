@@ -12,7 +12,7 @@ export const CadastrarPrato = () => {
       try {
         const response = await axios.post('http://localhost:8080/food', {
           name: nome,
-          description: descricao,
+          description: "Muito bom",
           price: preco,
           nationality: nacionalidade,
           image_url: imagem,
