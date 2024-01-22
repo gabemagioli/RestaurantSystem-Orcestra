@@ -11,7 +11,7 @@ function LoginAdm() {
     try {
 
       const response = await axios.post('http://localhost:8080/login/admin', {
-        email,
+        email:email,
         password: senha,
       });
 
@@ -20,12 +20,11 @@ function LoginAdm() {
 
       // vai para a página inicial após o login
       navigate("/pgInicialAdm");
-      setEmail("");
-      setSenha("");
 
     } catch (error) {
+      alert("Credencial invalida, confirme se sua senha ou email estao corretos!")
       console.error('Erro ao fazer login:', error);
-      // exibe msg ao encontrar um erro
+      // exibe msg ao erro
     }
   }
 
@@ -41,7 +40,7 @@ function LoginAdm() {
         <div className="login">
           <div className="campo">
             <label htmlFor="email" className="label">Email: </label>
-            <input type="text" id="email" name="email" placeholder="Digite seu email da empresa" />
+            <input type="text" id="email" name="email" placeholder="Digite seu email da empresa" onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="campo">
             <label htmlFor="codigo" className="label">Código: </label>
