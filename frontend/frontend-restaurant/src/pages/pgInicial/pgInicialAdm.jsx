@@ -84,6 +84,29 @@ function pgInicialAdm() {
     handleCloseDeleteConfirmation();
   }
 
+  const[pratos, setPratos] = useState([]);
+
+  const getPratos = async() => {
+      try{
+          const response = await axios.get("http://localhost:8080/food");
+
+          //recebe a lista com todos pratos
+          const data = response.data;
+
+          console.log(data);
+
+          setPratos(data);
+      }
+      catch(err){
+          console.log(err);
+      }
+
+  }
+
+  useEffect(() => {
+      getPratos();
+  }, []);
+
   return (
     <body>
       <header id="cabecalho">
@@ -102,16 +125,21 @@ function pgInicialAdm() {
           <h1 className="texto-cadapio">Todas as comidas:</h1>
           <div className="cardapio">
             <div className="refeicao">
-              <img src="https://i.panelinha.com.br/i1/228-q-1438-feijoada-na-pressao.webp" alt="Imagem da Refeição" className="imagem-refeicao" />
-              <div className="detalhes-refeicao">
-                <span className="tipo-comida">Tipo de Comida</span>
-                <h3 className="nome-refeicao">Nome da Refeição</h3>
-                <span className="preco-refeicao">R$ 10,00</span>
-              </div>
-              <div className="botoes">
-                <button className="botao-infos" onClick={handleOpenEditConfirmation}>Editar infos</button>
-                <button className="botao-infos" onClick={handleOpenDeleteConfirmation}>Excluir</button>
-              </div>
+              {pratos.length === 0 ? (<p>Carregando os nossos deliciosos pratos...</p>) :
+              pratos.map(prato => (//depois implementar uma forma de puxar apenas os pratos com nacionalidade br -> if(pratos.nacionalidade == brasil) -> retornar prato ->>> validacao a ser feita na funcao getPratosBrasileiros
+              <>
+                <div className="refeicao" key={prato.id}>
+                  <img src={prato.image_url} className="imagem-refeicao"/>{/*estilizar depois ou atribuir o nome das classes que foram feitas antes*/}
+                  <h2 className="nome-refeicao">{prato.name}</h2>
+                  <p>{prato.description}</p>
+                  <p className="preco-refeicao">{prato.price}</p>
+                </div>
+                <div className="botoes">
+                  <button className="botao-infos" onClick={handleOpenEditConfirmation}>Editar infos</button>
+                  <button className="botao-infos" onClick={handleOpenDeleteConfirmation}>Excluir</button>
+                </div>
+              </>
+              ))}
             </div>
           </div>
         </div>
