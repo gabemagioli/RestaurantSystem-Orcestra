@@ -41,7 +41,12 @@ function LoginAdm() {
         <div className="login">
           <div className="campo">
             <label htmlFor="email" className="label">Email: </label>
-            <input type="text" id="email" name="email" placeholder="Digite seu email da empresa" />
+            <input type="text"
+            id="email"
+            name="email"
+            placeholder="Digite seu email da empresa"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}/>
           </div>
           <div className="campo">
             <label htmlFor="codigo" className="label">Código: </label>
